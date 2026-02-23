@@ -11,6 +11,7 @@ use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\DemandeAideController;
 use App\Http\Controllers\ExpressionEcoleController;
 use App\Http\Controllers\AccountSettingController;
+use Rebing\GraphQL\Facades\GraphQL;
 
 Route::get('/', function () {
     return view('welcome');
