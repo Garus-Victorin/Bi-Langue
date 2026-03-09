@@ -687,6 +687,28 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Test User', 'test@example.com', '2026-02-08 09:11:46', '$2y$12$AUgYonoFDnISkW/FBh4FUuUqGpokJcrBeQPoEdAywmFklwtTdG3gu', '8EQyQcxUQP', '2026-02-08 09:11:47', '2026-02-08 09:11:47');
+
+-- --------------------------------------------------------
+--
+-- Structure de la table `comptes`
+--
+
+DROP TABLE IF EXISTS `comptes`;
+CREATE TABLE IF NOT EXISTS `comptes` (
+  `id_compte` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prenom` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mot_de_passe` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type_de_compte` enum('user','admin') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user',
+  `status` enum('online','offline') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'offline',
+  `date_et_heure_de_creation_du_compte` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id_compte`),
+  UNIQUE KEY `comptes_email_unique` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

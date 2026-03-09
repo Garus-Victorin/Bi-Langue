@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             ExpressionMaisonSeeder::class,
             ExpressionVoyageSeeder::class,
             ProduitSeeder::class,
+            CompteSeeder::class,
         ]);
     }
 }
